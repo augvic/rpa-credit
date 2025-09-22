@@ -12,6 +12,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By as By
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
 class RPACrédito:
     
@@ -50,6 +51,7 @@ class RPACrédito:
             print(CharType*Qtd)
     
     def InstanciarNavegador(self) -> webdriver:
+        load_dotenv()
         Options = opt()
         Options.add_argument("--log-level=3")
         Options.add_experimental_option("excludeSwitches", ["enable-logging"])
@@ -64,32 +66,18 @@ class RPACrédito:
         except:
             Driver.switch_to.window(AbasAbertas[1])
         Driver.get(f"https://www.revendedorpositivo.com.br/admin/")
-        microsoft_login_botao = None
-        try:
-            microsoft_login_botao = Driver.find_element(By.ID, value="login-ms-azure-ad")
-            microsoft_login_botao.click()
-            time.sleep(3)
+        email_input = Driver.find_element(By.ID, value="username")
+        password_input = Driver.find_element(By.ID, value="password")
+        login_button = Driver.find_element(By.ID, value="action-login").find_element(By.XPATH, value="./div[@class='col-md-12 pad-right0 pad-left0']/button[@class=' col-md-12 btn btn-primary button-login-home pad-bottom10']")
+        email_input.send_keys(os.getenv("GODEEP_EMAIL"))
+        password_input.send_keys(os.getenv("GODEEP_PASSWORD"))
+        login_button.click()
+        while True:
             body = Driver.find_element(By.TAG_NAME, value="body").text
-            if any(login_string in body for login_string in ["Because you're accessing sensitive info, you need to verify your password.", "Sign in", "Pick an account", "Entrar"]):
-                self.PrintarMensagem("Necessário logar conta Microsoft.", "=", 50, "bot")
-                while True:
-                    body = Driver.find_element(By.TAG_NAME, value="body").text
-                    if "DASHBOARD" in body:
-                        break
-                    else:
-                        time.sleep(3)
-            if "Approve sign in request" in body:
-                time.sleep(3)
-                codigo = Driver.find_element(By.ID, value="idRichContext_DisplaySign").text
-                self.PrintarMensagem(f"Necessário authenticator Microsoft para continuar: {codigo}.", "=", 50, "bot")
-                while True:
-                    body = Driver.find_element(By.TAG_NAME, value="body").text
-                    if "DASHBOARD" in body:
-                        break
-                    else:
-                        time.sleep(3)
-        except:
-            Driver.get(f"https://www.revendedorpositivo.com.br/admin/index/")
+            if "DASHBOARD" in body:
+                break
+            else:
+                time.sleep(1)
         return Driver
     
     def InstanciarControle(self) -> dict:

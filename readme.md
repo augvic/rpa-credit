@@ -1,10 +1,10 @@
 ## 🤖 RPA Credit
 
-🏭 Automation to do credit analysis and send response to B2B e-commerce website.
+🏭 Automation to do credit analysis and send response to the B2B e-commerce website of my work.
 
 ## About
 
-This project was designed to my work, to solve our credit analysis problem. It uses SAP Logon and automates it to get the enterprise clients financial data.
+This project was designed for my work to solve our credit analysis problem. It uses SAP Logon with the SAP Scripting Engine (COM Server) and automates the process of retrieving enterprise clients’ financial data.
 
 ## Tech Stack
 
@@ -23,7 +23,7 @@ Frameworks:
 
 ## Features
 
-After it used SAP to get the financial data, do the credit analysis.
+After retrieved the financial data from SAP, do the credit analysis.
 
 <div>
     <img width="300px" src="https://github.com/augvic/rpa-credit/blob/main/images/demo.png?raw=true" />
@@ -31,7 +31,7 @@ After it used SAP to get the financial data, do the credit analysis.
 
 <br>
 
-Then, make the logging.
+After, output the logging.
 
 <div>
     <img width="300px" src="https://github.com/augvic/rpa-credit/blob/main/images/logging.png?raw=true" />
