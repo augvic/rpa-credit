@@ -45,4 +45,6 @@ Finally, it records the response in an Excel sheet for tracking and control.
     <img width="300px" src="https://github.com/augvic/rpa-credit/blob/main/images/sheet.png?raw=true" />
 </div>
 
+<br>
+
 The automation runs this process in a loop for each order at our e-commerce website.
