@@ -18,7 +18,7 @@ Languages:
 Frameworks:
 <div>
     <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" />
-    <img width="30px" src="https://github.com/augvic/rpa-credit/blob/main/app/images/xlwings.jpeg?raw=true" />
+    <img width="30px" src="https://github.com/augvic/rpa-credit/blob/main/app/images/xlwings.jpg?raw=true" />
 </div>
 
 ## Features
