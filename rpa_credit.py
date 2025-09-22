@@ -72,12 +72,6 @@ class RPACrédito:
         email_input.send_keys(os.getenv("GODEEP_EMAIL"))
         password_input.send_keys(os.getenv("GODEEP_PASSWORD"))
         login_button.click()
-        while True:
-            body = Driver.find_element(By.TAG_NAME, value="body").text
-            if "DASHBOARD" in body:
-                break
-            else:
-                time.sleep(1)
         return Driver
     
     def InstanciarControle(self) -> dict:
